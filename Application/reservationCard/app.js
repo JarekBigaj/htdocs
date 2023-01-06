@@ -56,6 +56,7 @@ reservationForm.addEventListener("submit", (event)=>{
     const lastId = lastIdVisit.then((idVisit) => {
         const [id_visit] = idVisit.map(id => id[0]);
         console.log(id_visit);
+
     const clientPersonality = {
         firstName : firstName,
         lastName : lastName,
@@ -70,14 +71,17 @@ reservationForm.addEventListener("submit", (event)=>{
     const sendDataClient = fetch('http://127.0.0.1/api/postClientVisit.php', {
         method: 'POST',
         body: clientPersonalityJSON
-    })
+    });
 
     sendDataClient.then((result) =>result.json()).then((response) => {
+        const {id_dentist} = visitSpecifyData;
+        const {id_visit} = clientPersonality;
+        const queryParam = `?id_dentist=${id_dentist}&id_visit=${id_visit}`
         const isSuccessSendData = response.status;
         if(!isSuccessSendData){
             location.href = "/reservationResultCard/failedCard.html";
         }
-        location.href = "/reservationResultCard/successCard.html";
+        location.href = "/reservationResultCard/successCard.html"+queryParam;
     })
     });
     
