@@ -1,5 +1,8 @@
 # ignore xampp
 /xampp
+# ignore webalizer
 /webalizer
+# ignore img
 /img
+#ignore dashboard
 /dashboard
