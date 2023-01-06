@@ -67,11 +67,20 @@ reservationForm.addEventListener("submit", (event)=>{
     const clientPersonalityJSON = JSON.stringify(clientPersonality);
 
     
-    fetch('http://127.0.0.1/api/postClientVisit.php', {
+    const sendDataClient = fetch('http://127.0.0.1/api/postClientVisit.php', {
         method: 'POST',
         body: clientPersonalityJSON
     })
+
+    sendDataClient.then((result) =>result.json()).then((response) => {
+        const isSuccessSendData = response.status;
+        if(!isSuccessSendData){
+            location.href = "/reservationResultCard/failedCard.html";
+        }
+        location.href = "/reservationResultCard/successCard.html";
+    })
     });
+    
 })
 
 
