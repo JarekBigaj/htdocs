@@ -23,6 +23,7 @@ cancelButton.addEventListener('click',()=>{
     location.href = "../index.html";
 })
 
+
 reservationForm.addEventListener("submit", (event)=>{
     event.preventDefault();
 
@@ -40,6 +41,7 @@ reservationForm.addEventListener("submit", (event)=>{
         date : date,
         id_dentist : id_dentist
     }
+
 
     const visitSpecifyDataJSON = JSON.stringify(visitSpecifyData);
     
