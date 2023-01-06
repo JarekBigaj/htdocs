@@ -1,7 +1,6 @@
 import { renderDentistsList } from "./renderDentistsList.js";
+import { API_URL_ALL_DENTISTS } from "./accessToData/urlAccess.js";
 
-
-const API_URL_ALL_DENTISTS = 'http://127.0.0.1/api/getDentists.php';
 
 const getDataAllDentistsFromUrl = fetch(API_URL_ALL_DENTISTS);
 
